@@ -23,6 +23,7 @@ void Save();
 void Read();
 void Count();
 void Find();
+void ave()
 
 
 
@@ -37,7 +38,8 @@ int main()
 		  printf("\t\t3.保存学生信息\n");
 		  printf("\t\t4.读取学生信息\n");
 		  printf("\t\t5.统计人数\n");
-		  printf("\t\t6.查找学生信息");
+		  printf("\t\t6.平均分\n");
+		  printf("\t\t7.查找学生信息");
 		  
 		  
 		  printf("\t\t0.退出");
@@ -52,22 +54,23 @@ int main()
 		  switch(ch)
 			{
 				case'1':Input();
-						break;
+					break;
 				case'2':Print();
-						break;
+					break;
 				case'3':Save();
-						break;
+					break;
 				case'4':Read();
-						break;
+					break;
 				case'5':printf("人数:%d\n",count);
-						break;
-				case'6':
+					break;
+				case'6':ave();
+					break;
+				case'7':
 					{
 					 Node*pNode=Find();
 					 if(pNode!=NULL)
 						{
-						 printf("学号:%d\t姓名:%s\t年龄:%d\t成绩:%d\n",pNode->stu.num,
-							     pNode->stu.name,pNode->stu.age,pNode->stu.scorea);
+						 printf("学号:%d\t姓名:%s\t年龄:%d\t成绩:%d\n",pNode->stu.num,pNode->stu.name,pNode->stu.age,pNode->stu.scorea);
 						}
 					 break;
 					}
@@ -104,8 +107,7 @@ void Input()
 		{
 		 p->pNext=pNewNode;
 		}
-	 scanf("%s %d %d %d",pNewNode->stu.name,&pNewNode->stu.num,
-		    &pNewNode->stu.age,&pNewNode->stu.scorea);
+	 scanf("%s %d %d %d",pNewNode->stu.name,&pNewNode->stu.num，&pNewNode->stu.age,&pNewNode->stu.scorea);
 	 system("cls");
 	 printf("\n");
 	}
@@ -161,7 +163,7 @@ void Read()
 		 p2=p;
 		}
 	 g_pHead=NULL;
-	 FILE*pFile=fopen("C:\\stuinfo.data","r");
+	 FILE*pFile=fopen("C:\\学生信息.txt","r");
 	 if(pFile==0)
 		{
 		 printf("\n");
@@ -201,6 +203,21 @@ void Count()
 		}
 	 return nCount;
 	}
+
+void ave(){
+{
+	int i,n;
+	double sum=0;
+	
+	scanf("%d",&n);
+
+	for(i=0;i<100;i++){
+		sum=sum+a[n][i];
+	
+	
+	printf("%7.2f\n", (sum/100));
+}
+	
 void Find()
 	{
 	 system("cls");
